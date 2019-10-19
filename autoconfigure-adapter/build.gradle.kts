@@ -24,6 +24,7 @@ dependencies {
 	compileOnly("io.lettuce:lettuce-core")
 	compileOnly("com.fasterxml.jackson.core:jackson-databind")
 	compileOnly("com.samskivert:jmustache")
+	compileOnly("org.flywaydb:flyway-core")
 	compileOnly("org.springframework.data:spring-data-r2dbc")
 	compileOnly("io.r2dbc:r2dbc-postgresql")
 	compileOnly("io.r2dbc:r2dbc-h2")

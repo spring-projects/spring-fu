@@ -45,8 +45,8 @@ open class ConfigurationDsl(private val dsl: ConfigurationDsl.() -> Unit): Abstr
 	 *
 	 * @sample org.springframework.fu.kofu.samples.configurationProperties
 	 */
-	inline fun <reified T : Any> configurationProperties(properties: T? = null, prefix: String = ""): T {
-		val bindedProperties = properties ?: FunctionalConfigurationPropertiesBinder(context).bind(prefix, Bindable.of(T::class.java)).get()
+	inline fun <reified T : Any> configurationProperties(properties: T? = null, prefix: String = "", defaultProperties: T? = null): T {
+		val bindedProperties = properties ?: FunctionalConfigurationPropertiesBinder(context).bind(prefix, Bindable.of(T::class.java)).orElse(defaultProperties)
 		context.registerBean<T>("${T::class.java.simpleName.toLowerCase()}ConfigurationProperties") {
 			bindedProperties
 		}
